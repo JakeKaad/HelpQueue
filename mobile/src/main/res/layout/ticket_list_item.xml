@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              tools:background="#FFFFFFFF">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/iconImageView"
+        android:src="@drawable/java"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:45"
+        android:id="@+id/timeLabel"
+        android:layout_alignBottom="@+id/iconImageView"
+        android:layout_toRightOf="@+id/iconImageView"
+        android:layout_toEndOf="@+id/iconImageView"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asked At:"
+        android:id="@+id/askedLabel"
+        android:layout_above="@+id/timeLabel"
+        android:layout_toRightOf="@+id/iconImageView"
+        android:layout_toEndOf="@+id/iconImageView"
+        android:layout_marginBottom="10sp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:id="@+id/deskLabel"
+        android:layout_below="@+id/askedLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="10sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desk #"
+        android:id="@+id/deskAtLabel"
+        android:layout_alignTop="@+id/askedLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/deskLabel"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/askedLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/askedLabel"
+        android:layout_toLeftOf="@+id/deskLabel"
+        android:layout_marginLeft="10sp"
+        android:textColor="@android:color/black"
+        android:text="Why won&apos;t my text field work?"/>
+
+</RelativeLayout>
