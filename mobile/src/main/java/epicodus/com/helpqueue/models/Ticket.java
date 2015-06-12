@@ -1,11 +1,17 @@
 package epicodus.com.helpqueue.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import epicodus.com.helpqueue.R;
 
 /**
  * Created by jake on 6/12/15.
  */
-public class Ticket {
+public class Ticket implements Parcelable{
     private String mStudent;
     private boolean mOpen;
     private long mCreatedAt;
@@ -37,8 +43,10 @@ public class Ticket {
         mOpen = open;
     }
 
-    public long getCreatedAt() {
-        return mCreatedAt;
+    public String getFormattedTime() {
+        SimpleDateFormat formatter = new SimpleDateFormat("h:mm");
+        Date date = new Date(mCreatedAt);
+        return formatter.format(date);
     }
 
     public long getClosedAt() {
@@ -56,4 +64,40 @@ public class Ticket {
     public String getLanguage() {
         return mLanguage;
     }
+
+    public int getIconId() {
+        return R.drawable.java;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mStudent);
+        dest.writeLong(mCreatedAt);
+        dest.writeString(mQuestion);
+        dest.writeString(mStudent);
+    }
+
+    private Ticket(Parcel in) {
+        mStudent = in.readString();
+        mCreatedAt = in.readLong();
+        mQuestion = in.readString();
+        mStudent = in.readString();
+    }
+
+    public static final Creator<Ticket> CREATOR = new Creator<Ticket>() {
+        @Override
+        public Ticket createFromParcel(Parcel source) {
+            return new Ticket(source);
+        }
+
+        @Override
+        public Ticket[] newArray(int size) {
+            return new Ticket[size];
+        }
+    };
 }

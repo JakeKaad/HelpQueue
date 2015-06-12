@@ -17,55 +17,28 @@
         android:layout_height="wrap_content"
         android:text="12:45"
         android:id="@+id/timeLabel"
-        android:layout_alignBottom="@+id/iconImageView"
-        android:layout_toRightOf="@+id/iconImageView"
-        android:layout_toEndOf="@+id/iconImageView"
         android:textColor="@android:color/black"
-        android:layout_marginLeft="12sp"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Asked At:"
-        android:id="@+id/askedLabel"
-        android:layout_above="@+id/timeLabel"
-        android:layout_toRightOf="@+id/iconImageView"
-        android:layout_toEndOf="@+id/iconImageView"
-        android:layout_marginBottom="10sp"
-        android:textColor="@android:color/black"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="123"
+        android:text="Julianna &amp; Bridgett"
         android:id="@+id/deskLabel"
-        android:layout_below="@+id/askedLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:textColor="@android:color/black"
-        android:layout_marginRight="10sp"/>
+        android:gravity="center"
+        android:layout_above="@+id/questionLabel"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Desk #"
-        android:id="@+id/deskAtLabel"
-        android:layout_alignTop="@+id/askedLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/deskLabel"
-        android:textColor="@android:color/black"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_alignTop="@+id/askedLabel"
-        android:layout_centerHorizontal="true"
-        android:layout_toRightOf="@+id/askedLabel"
-        android:layout_toLeftOf="@+id/deskLabel"
-        android:layout_marginLeft="10sp"
+        android:id="@+id/questionLabel"
         android:textColor="@android:color/black"
-        android:text="Why won&apos;t my text field work?"/>
+        android:text="Why won&apos;t my text field work?"
+        android:layout_below="@+id/iconImageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>
