@@ -4,11 +4,13 @@
               android:orientation="vertical"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              tools:background="#FFFFFFFF">
+              tools:background="#FFFFFFFF"
+              android:paddingBottom="6dp">
 
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:paddingTop="6dp"
         android:id="@+id/iconImageView"
         android:src="@drawable/java"/>
 
@@ -18,6 +20,7 @@
         android:text="12:45"
         android:id="@+id/timeLabel"
         android:textColor="@android:color/black"
+        android:paddingTop="6dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
 
@@ -29,6 +32,7 @@
         android:textColor="@android:color/black"
         android:gravity="center"
         android:layout_above="@+id/questionLabel"
+        android:paddingTop="2dp"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -37,6 +41,8 @@
         android:id="@+id/questionLabel"
         android:textColor="@android:color/black"
         android:text="Why won&apos;t my text field work?"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:layout_below="@+id/iconImageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>

@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -29,6 +30,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import butterknife.OnClick;
 import epicodus.com.helpqueue.R;
 import epicodus.com.helpqueue.adapters.TicketAdapter;
@@ -41,29 +44,30 @@ public class MainActivity extends ActionBarActivity {
     public static final String TICKETS = "TICKETS";
 
     private Ticket[] mTickets;
-    private TicketAdapter mAdapter;
-
+    @InjectView(R.id.queueButton) Button mQueueButton;
+    @InjectView(R.id.questionButton) Button mQuestionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
         getTickets();
     }
 
     private void getTickets() {
         String ticketsUrl = "https://dazzling-inferno-9595.firebaseio.com/tickets.json";
-        
+
         if (isNetworkAvailable()) {
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder().url(ticketsUrl).build();
             Call call = client.newCall(request);
-            Log.e(TAG, "hi");
+
             call.enqueue(new Callback() {
                 @Override
                 public void onFailure(Request request, IOException e) {
-
+                    Toast.makeText(MainActivity.this, "Unable to connect to Firebase", Toast.LENGTH_LONG).show();
                 }
 
                 @Override
@@ -75,13 +79,9 @@ public class MainActivity extends ActionBarActivity {
                         if (response.isSuccessful()) {
                             mTickets = parseTickets(jsonData);
                             Log.v(TAG, mTickets[0].getQuestion());
-                            Intent intent = new Intent(MainActivity.this, TicketActivity.class);
-                            intent.putExtra(TICKETS, mTickets);
-                            startActivity(intent);
                         } else {
-                            alertUserAboutError();
+                            Toast.makeText(MainActivity.this, "Unable to connect to Firebase", Toast.LENGTH_LONG).show();
                         }
-
                     } catch (IOException e) {
                         Log.e(TAG, "exception caught: ", e);
                     } catch (JSONException e) {
@@ -92,7 +92,6 @@ public class MainActivity extends ActionBarActivity {
         } else {
             Toast.makeText(this, "Network unavailable", Toast.LENGTH_LONG).show();
         }
-
     }
 
     private void alertUserAboutError() {
@@ -110,8 +109,9 @@ public class MainActivity extends ActionBarActivity {
 
             String student = jsonTicket.getString("student");
             String question = jsonTicket.getString("question");
+            boolean open = jsonTicket.getBoolean("open");
             String language = jsonTicket.getString("language");
-            Ticket ticket = new Ticket(student, question, language);
+            Ticket ticket = new Ticket(student, question, open, language);
             tickets[i] = ticket;
         }
 
@@ -125,15 +125,14 @@ public class MainActivity extends ActionBarActivity {
         if (networkInfo != null && networkInfo.isConnected()) {
             isAvailable = true;
         }
+        Log.v(TAG, Boolean.toString(networkInfo.isConnected()));
         return isAvailable;
     }
 
-    @OnClick(R.id.button)
+    @OnClick(R.id.queueButton)
     public void startTicketActivity(View view) {
         Intent intent = new Intent(this, TicketActivity.class);
-        intent.putExtra(TICKETS, mTickets);
+        intent.putExtra("TICKETS", mTickets);
         startActivity(intent);
     }
-
-
 }

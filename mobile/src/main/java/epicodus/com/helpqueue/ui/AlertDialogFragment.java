@@ -11,7 +11,7 @@ import epicodus.com.helpqueue.R;
 /**
  * Created by jake on 6/12/15.
  */
-public class AlertDialogFragment extends DialogFragment{
+public class AlertDialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

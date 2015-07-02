@@ -15,15 +15,14 @@ public class Ticket implements Parcelable{
     private String mStudent;
     private boolean mOpen;
     private long mCreatedAt;
-    private long mClosedAt;
     private String mQuestion;
     private String mLanguage;
 
-    public Ticket(String student, String question, String language) {
+    public Ticket(String student, String question, boolean open, String language) {
         mStudent = student;
         mQuestion = question;
         mLanguage = language;
-        mOpen = false;
+        mOpen = open;
         mCreatedAt = System.currentTimeMillis();
     }
 
@@ -49,14 +48,6 @@ public class Ticket implements Parcelable{
         return formatter.format(date);
     }
 
-    public long getClosedAt() {
-        return mClosedAt;
-    }
-
-    public void setClosedAt(long closedAt) {
-        mClosedAt = closedAt;
-    }
-
     public String getQuestion() {
         return mQuestion;
     }
@@ -78,6 +69,7 @@ public class Ticket implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(mStudent);
         dest.writeLong(mCreatedAt);
+        dest.writeInt((mOpen ? 1 : 0));
         dest.writeString(mQuestion);
         dest.writeString(mStudent);
     }
@@ -85,6 +77,7 @@ public class Ticket implements Parcelable{
     private Ticket(Parcel in) {
         mStudent = in.readString();
         mCreatedAt = in.readLong();
+        mOpen = in.readByte() == 1;
         mQuestion = in.readString();
         mStudent = in.readString();
     }

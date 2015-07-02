@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="epicodus.com.helpqueue.ui.TicketFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Success!"
+        android:id="@+id/questionLabel"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+</FrameLayout>
