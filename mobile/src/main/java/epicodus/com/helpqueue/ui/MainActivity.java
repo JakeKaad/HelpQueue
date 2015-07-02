@@ -100,7 +100,8 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private Ticket[] parseTickets(String jsonData) throws JSONException {
-        JSONArray data = new JSONArray(jsonData);
+        JSONObject objectData = new JSONObject(jsonData);
+        JSONArray data = objectData.toJSONArray(objectData.names());
 
         Ticket[] tickets = new Ticket[data.length()];
 
@@ -133,6 +134,12 @@ public class MainActivity extends ActionBarActivity {
     public void startTicketActivity(View view) {
         Intent intent = new Intent(this, TicketActivity.class);
         intent.putExtra("TICKETS", mTickets);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.questionButton)
+    public void startNewTicketActivity(View view) {
+        Intent intent = new Intent(this, NewTicketActivity.class);
         startActivity(intent);
     }
 }

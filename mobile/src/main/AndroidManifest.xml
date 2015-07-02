@@ -23,6 +23,10 @@
             android:name=".ui.TicketActivity"
             android:label="@string/title_activity_ticket" >
         </activity>
+        <activity
+            android:name=".ui.NewTicketActivity"
+            android:label="@string/title_activity_new_ticket" >
+        </activity>
     </application>
 
 </manifest>

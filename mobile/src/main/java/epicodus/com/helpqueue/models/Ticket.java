@@ -93,4 +93,8 @@ public class Ticket implements Parcelable{
             return new Ticket[size];
         }
     };
+
+    public long getCreatedAt() {
+        return mCreatedAt;
+    }
 }

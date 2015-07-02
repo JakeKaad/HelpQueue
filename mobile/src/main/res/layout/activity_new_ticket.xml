@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ecf0f1"
+                tools:context=".MainActivity"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ask a Question"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:background="#f05a26"
+        android:textColor="#ffffffff"
+        android:textSize="20sp"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/questionLabel"
+        android:layout_above="@+id/helpButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Give a brief description of issue your are having."/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Help!"
+        android:id="@+id/helpButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#f05a26"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/languageLabel"
+        android:layout_above="@+id/questionLabel"
+        android:layout_centerHorizontal="true"
+        android:hint="Language"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/studentLabel"
+        android:layout_above="@+id/languageLabel"
+        android:layout_centerHorizontal="true"
+        android:hint="Please enter your name."/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Have you gone through all the steps on the Learn How to Program debugging lesson? \n\nHave you asked another pair for help?\n\nHave you spent 15 minutes going through through the problem documenting every step?\n\n"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/studentLabel"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+</RelativeLayout>
