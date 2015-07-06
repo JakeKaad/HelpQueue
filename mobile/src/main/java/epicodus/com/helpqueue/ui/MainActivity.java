@@ -57,7 +57,6 @@ public class MainActivity extends ActionBarActivity {
 
     private void getTickets() {
         String ticketsUrl = "https://dazzling-inferno-9595.firebaseio.com/tickets.json";
-
         if (isNetworkAvailable()) {
             OkHttpClient client = new OkHttpClient();
 
@@ -135,11 +134,11 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(this, TicketActivity.class);
         intent.putExtra("TICKETS", mTickets);
         startActivity(intent);
-    }
-
-    @OnClick(R.id.questionButton)
-    public void startNewTicketActivity(View view) {
+    }@OnClick(R.id.questionButton)
+     public void startNewTicketActivity(View view) {
         Intent intent = new Intent(this, NewTicketActivity.class);
         startActivity(intent);
     }
+
+
 }

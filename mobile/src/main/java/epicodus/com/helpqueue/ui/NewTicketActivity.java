@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -45,10 +43,10 @@ public class NewTicketActivity extends ActionBarActivity {
         String language = mLanguageLabel.getText().toString();
 
         Ticket ticket = new Ticket(students, question, true, language);
-        createTicket(ticket);
+        postTicket(ticket);
     }
 
-    private void createTicket(Ticket ticket) {
+    private void postTicket(Ticket ticket) {
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
         String jsonString = "{ \"student\" : \"" + ticket.getStudent() + "\"," +
