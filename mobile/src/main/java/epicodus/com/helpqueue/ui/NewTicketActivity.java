@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.parse.ParsePush;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
@@ -70,6 +71,18 @@ public class NewTicketActivity extends ActionBarActivity {
 
             @Override
             public void onResponse(Response response) throws IOException {
+
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ParsePush push = new ParsePush();
+                        push.setChannel("");
+                        push.setMessage("New question!");
+                        push.sendInBackground();
+                    }
+                });
+
 
                 Intent intent = new Intent(NewTicketActivity.this, MainActivity.class);
                 startActivity(intent);
